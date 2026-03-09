@@ -10,53 +10,45 @@
 <div class = "container mt-3">
 
 
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
 
-    <div class="row justify-content-center">
-        <div class ="col-6">
-            <form method="post" action="/add-student" >
+                <form action="/add-request" method="post">
 
-                <div class = "row mt-3">
-                    <div class = "col-12">
-                        <label> ФИО: </label>
+                    <div class="mb-3">
+                        <label class="form-label">ФИО :</label>
+                        <input type="text" class="form-control" name="userName" placeholder="ФИО :">
                     </div>
-                </div>
 
-                <div class = "row mt-3">
-                    <div class = "col-12">
-                        <input type="text" name = "name" class = "form-control">
+                    <div class="mb-3">
+                        <label class="form-label">Курс :</label>
+                        <select class="form-select" name="courseName">
+                            <option selected disabled>Выберите курс</option>
+                            <option>Java Standard Edition</option>
+                            <option>Java Pro</option>
+                            <option>Web Technologies</option>
+                            <option>Python Programming Language</option>
+                            <option>UX/UI Design</option>
+                            <option>Django Framework</option>
+                        </select>
                     </div>
-                </div>
 
-                <div class = "row mt-3">
-                    <div class = "col-12">
-                        <label> КУРС: </label>
+                    <div class="mb-3">
+                        <label class="form-label">Телефон :</label>
+                        <input type="text" class="form-control" name="phone" placeholder="+7(7__)_______">
                     </div>
-                </div>
 
-                <div class = "row mt-3">
-                    <div class = "col-12">
-                        <input type="text" name = "surname" class = "form-control">
+                    <div class="mb-3">
+                        <label class="form-label">Комментарии :</label>
+                        <textarea class="form-control" name="commentary" rows="5" placeholder="Комментарии"></textarea>
                     </div>
-                </div>
 
-                <div class = "row mt-3">
-                    <div class = "col-12">
-                        <label> EXAM: </label>
-                    </div>
-                </div>
+                    <button class="btn btn-success" type="submit">Добавить заявку</button>
 
-                <div class = "row mt-3">
-                    <div class = "col-12">
-                        <input type="text" name = "exam" class = "form-control">
-                    </div>
-                </div>
+                </form>
 
-                <div class = "row mt-3">
-                    <div class = "col-12">
-                        <button class="btn btn-sm btn-success"> ADD STUDENT </button>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 

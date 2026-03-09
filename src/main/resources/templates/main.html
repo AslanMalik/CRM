@@ -9,20 +9,35 @@
 <div class = "container mt-3">
 <div th:insert="nav.html"></div>
 
-    <div class = "row g-3 mt-3">
-        <div class = "col-md-6" th:each="request : ${requests}">
-            <div class="card center" style="background-color: #d1e7dd ">
+
+    <div class="row g-3 mt-3">
+        <div class="col-md-6" th:each="request : ${requests}">
+            <div class="card h-100 border-light-subtle">
                 <div class="card-body">
-                    <h5 class="card-title text-center text-primary fw-bold fs-3" th:text="${'Заявка от ' + request.userName}"></h5>
-                    <p class="card-text text-center" th:text="${'Курс: ' + request.courseName}"></p>
-                    <p class = "card-text text-center fw-bold fs-4"  th:text="${request.commentary}"></p>
-                    <p class = "card-text text-center fw-bold fs-4"  th:text="${'Тел:'+request.phone}"></p>
-                    <div class = "text-center"><button class ="btn btn-success text-center w-100" style="align-items: center;">DETAILS</button></div>
+
+                    <h4 class="card-title fw-bold mb-4">
+                        <span th:if="${request.handled == false}" class="text-danger">*(Новая)</span>
+                        <span th:text="${' Заявка от ' + request.userName}"></span>
+                    </h4>
+
+                    <p class="card-text text-secondary fw-bold mb-2"
+                       th:text="${'Курс: ' + request.courseName}">
+                    </p>
+
+                    <p class="card-text mb-4"
+                       th:text="${request.commentary}">
+                    </p>
+
+                    <p class="card-text fw-bold d-inline"
+                       th:text="${'Тел: ' + request.phone}">
+                    </p>
+
+                    <a href="#" class="ms-3 text-primary text-decoration-none">Подробнее</a>
+
                 </div>
             </div>
         </div>
     </div>
-
 
 
 </div>
