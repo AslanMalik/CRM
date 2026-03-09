@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="links.html"></div>
+</head>
+<body>
+<div class = "container mt-3">
+<div th:insert="nav.html"></div>
+
+    <div class = "row g-3 mt-3">
+        <div class = "col-md-6" th:each="request : ${requests}">
+            <div class="card center" style="background-color: #d1e7dd ">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-primary fw-bold fs-3" th:text="${'Заявка от ' + request.userName}"></h5>
+                    <p class="card-text text-center" th:text="${'Курс: ' + request.courseName}"></p>
+                    <p class = "card-text text-center fw-bold fs-4"  th:text="${request.commentary}"></p>
+                    <p class = "card-text text-center fw-bold fs-4"  th:text="${'Тел:'+request.phone}"></p>
+                    <div class = "text-center"><button class ="btn btn-success text-center w-100" style="align-items: center;">DETAILS</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+</body>
+</html>
