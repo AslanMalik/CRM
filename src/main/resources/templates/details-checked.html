@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="links.html"></div>
+</head>
+<body>
+<div th:insert="nav.html"></div>
+<div class = "container mt-3">
+
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+
+                <h3 style="color: green">  Обработанная заявка  </h3>
+                <form action="/add-request" method="post">
+
+                    <div class="mb-3">
+                        <label class="form-label">ФИО :</label>
+                        <input type="text" class="form-control" name="userName" placeholder="ФИО :" th:value="${request.userName}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Курс :</label>
+                        <select class="form-select" name="courseName">
+                            <option disabled>Выберите курс</option>
+                            <option th:selected="${request.courseName == 'Java Standard Edition'}">
+                                Java Standard Edition
+                            </option>
+                            <option th:selected="${request.courseName == 'Java Pro'}">
+                                Java Pro
+                            </option>
+                            <option th:selected="${request.courseName == 'Web Technologies'}">
+                                Web Technologies
+                            </option>
+                            <option th:selected="${request.courseName == 'Python Programming Language'}">
+                                Python Programming Language
+                            </option>
+                            <option th:selected="${request.courseName == 'UX/UI Design'}">
+                                UX/UI Design
+                            </option>
+                            <option th:selected="${request.courseName == 'Django Framework'}">
+                                Django Framework
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Телефон :</label>
+                        <input type="text" class="form-control" name="phone"  th:value="${request.phone}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Комментарии :</label>
+                        <textarea class="form-control" name="commentary" rows="5" th:text="${request.commentary}"></textarea>
+                    </div>
+
+<!--                    <button class="btn btn-success" type="submit">Добавить заявку</button>-->
+
+                </form>
+
+                <div class="mt-3">
+                    <form th:action="@{/delete-request}" method="post">
+                        <input type="hidden" name="id" th:value="${request.id}">
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
